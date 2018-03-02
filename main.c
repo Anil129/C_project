@@ -4,5 +4,4 @@ main()
 {
 big3();
 fact();
-pali();
 }
