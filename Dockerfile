@@ -1,4 +1,5 @@
 FROM: rhel:latest
 RUN yum update
 RUN yum install httpd
-CMD [ "install" -D FOREGROUND ]
+EXPOSE: "80"
+CMD [ "httpd" -D FOREGROUND ]
