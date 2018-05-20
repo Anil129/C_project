@@ -1,0 +1,10 @@
+FROM centos:latest
+MAINTAINER csramesh1@gmail.com
+RUN yum install wget -y
+RUN wget 'https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.85/bin/apache-tomcat-7.0.85.tar.gz' && \
+    tar -xvzf 'apache-tomcat-7.0.85.tar.gz' >> /usr/sbin/tomcat
+RUN rm -rf 'apache-tomcat-7.0.85.tar.gz'
+ENV TOMCAT_HOME /usr/sbin/tomcat/apache-tomcat-7.0.85//bin/
+EXPOSE 80
+CMD ["httpd" "-D" "FORGROUND"]
+
