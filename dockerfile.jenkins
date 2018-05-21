@@ -1,0 +1,6 @@
+FROM centos:latest
+RUN yum install wget -y && wget "https://pkg.jenkins.io/redhat-stable/jenkins-2.73.2-1.1.noarch.rpm" >> /usr/local/jenkins
+ENV JENKINS_HOME /usr/local/jenkins/jenkins-2.73.2-1.1
+RUN echo 'export PATH=${JENKINS_HOME/bin:$PATH' | tee ~/.bashrc
+EXPOSE 80
+CMD ["jenkins" "-D" "FOREGROUND"]
